@@ -1,6 +1,7 @@
 @import 'styles/global.wxss';
 
 view,
+scroll-view,
 text,
 swiper,
 swiper-item,
@@ -8,4 +9,13 @@ navigator{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+page{
+  font-size: 28rpx;
+}
+
+image{
+  width: 100%;
+  height: 100%;
 }

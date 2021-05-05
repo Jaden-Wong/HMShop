@@ -15,7 +15,7 @@ Page({
 
   async getSwiperList () {
     const result = await request({
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata'
+      url: '/home/swiperdata'
     })
     this.setData({
       swiperList: result.data.message
@@ -24,7 +24,7 @@ Page({
 
   async getCatesList () {
     const result = await request({
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems'
+      url: '/home/catitems'
     })
     this.setData({
       catesList: result.data.message
@@ -33,7 +33,7 @@ Page({
   
   async getFloorList () {
     const result = await request({
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata'
+      url: '/home/floordata'
     })
     this.setData({
       floorList: result.data.message

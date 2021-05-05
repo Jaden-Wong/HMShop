@@ -1,0 +1,48 @@
+.cates {
+  height: 100%;
+}
+.cates .cates-container {
+  height: calc(100vh - 90rpx);
+  display: flex;
+}
+.cates .cates-container .cates-item-menu {
+  flex: 2;
+}
+.cates .cates-container .cates-item-menu .cates-item-menu-items {
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+}
+.cates .cates-container .cates-item-menu .active {
+  color: var(--themeColor);
+  font-style: italic;
+}
+.cates .cates-container .cates-item-content {
+  flex: 5;
+}
+.cates .cates-container .cates-item-content .cates-item-content-items {
+  padding-top: 20rpx;
+  text-align: center;
+  border-bottom: 2rpx dashed #eee;
+}
+.cates .cates-container .cates-item-content .cates-item-content-items .content-title {
+  display: inline-block;
+  padding: 10rpx;
+  height: 85rpx;
+  font-size: 35rpx;
+  font-weight: 600;
+}
+.cates .cates-container .cates-item-content .cates-item-content-items .content-product {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.cates .cates-container .cates-item-content .cates-item-content-items .content-product navigator {
+  padding: 10rpx;
+  width: 33.33%;
+}
+.cates .cates-container .cates-item-content .cates-item-content-items .content-product navigator image {
+  width: 60%;
+}
