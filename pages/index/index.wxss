@@ -1,0 +1,57 @@
+.swiper-index {
+  width: 750rpx;
+  height: 340rpx;
+}
+.swiper-index swiper-item {
+  width: 100%;
+}
+.swiper-index swiper-item image {
+  width: 100%;
+}
+.nav-container-index {
+  display: flex;
+  width: 750rpx;
+  background-color: #fff;
+}
+.nav-container-index .nav-item-index {
+  flex: 1;
+  padding: 30rpx;
+}
+.nav-container-index .nav-item-index image {
+  width: 100%;
+}
+.floor-container-index {
+  width: 750rpx;
+  padding: 0 15rpx;
+}
+.floor-container-index .floor-item-index {
+  width: 100%;
+  padding-bottom: 10rpx;
+}
+.floor-container-index .floor-item-index .floor-title image {
+  width: 100%;
+}
+.floor-container-index .floor-item-index .floor-product {
+  /* 父元素添加 overflow 清除浮动 */
+  overflow: hidden;
+}
+.floor-container-index .floor-item-index .floor-product .floor-product-item {
+  /* 一浮全浮 */
+  float: left;
+  width: 33.33%;
+}
+.floor-container-index .floor-item-index .floor-product .floor-product-item:nth-last-child(-n+4) {
+  /* 第一张图片的尺寸 232 * 386 */
+  /* 第一张图片的缩放情况 232 / 386 = 33.33vw / height */
+  /* height = 33.33vw * 386 / 232 */
+  height: calc(32vw * 386 / 232 / 2);
+  border-left: 10rpx solid #fff;
+}
+.floor-container-index .floor-item-index .floor-product .floor-product-item:nth-child(2),
+.floor-container-index .floor-item-index .floor-product .floor-product-item:nth-child(3) {
+  border-bottom: 10rpx solid #fff;
+}
+.floor-container-index .floor-item-index .floor-product .floor-product-item image {
+  width: 100%;
+  height: 100%;
+}

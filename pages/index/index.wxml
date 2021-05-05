@@ -1,3 +1,33 @@
-<view class="" hover-class="none" hover-stop-propagation="false">
-  首页
+<view class="hmshop-index">
+  <!-- 搜索栏 -->
+  <SearchInput></SearchInput>
+  <!-- 轮播图 -->
+  <swiper class="swiper-index" indicator-dots	autoplay circular>
+    <swiper-item wx:for="{{swiperList}}" wx:key="id">
+      <image mode="widthFix" src="{{item.image_src}}"></image>
+    </swiper-item>
+  </swiper>
+  <!-- 导航栏 -->
+  <view class="nav-container-index">
+    <navigator url="#" class="nav-item-index" wx:for="{{catesList}}" wx:key="floor_title">
+      <image mode="widthFix" src="{{item.image_src}}">
+      </image>
+    </navigator>
+  </view>
+  <!-- 楼层 -->
+  <view class="floor-container-index">
+    <view class="floor-item-index" wx:for="{{floorList}}" wx:key="id">
+      <!-- title -->
+      <view class="floor-title">
+        <image src="{{item.floor_title.image_src}}" mode="widthFix"></image>
+      </view>
+      <!-- product -->
+      <view class="floor-product">
+        <view class="floor-product-item" wx:for="{{item.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name">
+          <image src="{{item2.image_src}}" mode="{{index2 === 0 ? 'widthFix' : 'scaleToFill'}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+    
 </view>

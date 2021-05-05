@@ -1,0 +1,11 @@
+@import 'styles/global.wxss';
+
+view,
+text,
+swiper,
+swiper-item,
+navigator{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
