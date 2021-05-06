@@ -1,0 +1,16 @@
+.nav-contianer{
+  display: flex;
+  justify-content: space-around;
+}
+.nav-item{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx;
+  font-size: 30rpx;
+}
+.active{
+  color: var(--themeColor);
+  border-bottom: 4rpx solid currentColor;
+}

@@ -1,2 +1,51 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<view class="goods_list">
+  <!-- 搜索框 -->
+  <SearchInput></SearchInput>
+  <!-- nav栏 -->
+  <NavTab tabs="{{navTabSel}}" bindnavItemTab="handelNavItemTab">
+    <!-- 1.综合 -->
+    <block wx:if="{{navTabSel[0].isActive}}">
+      <view class="goods-mesages-container" wx:for="{{goodsList}}" wx:key="goods_id">
+        <view class="goods-mesages-img">
+          <image src="{{item.goods_big_logo ? item.goods_big_logo : 'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix" lazy-load="true"></image>
+        </view>
+        <view class="goods-mesages-text">
+          <view class="msg">{{item.goods_name}}</view>
+          <view class="price">￥{{item.goods_price}}</view>
+        </view>
+      </view>
+    </block>
+    <!-- 2.销量 -->
+    <block wx:elif="{{navTabSel[1].isActive}}">
+      <view class="goods-mesages-container" wx:for="{{goodsListSortBySell}}" wx:key="goods_id">
+        <view class="goods-mesages-img">
+          <image src="{{item.goods_big_logo ? item.goods_big_logo : 'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix" lazy-load="true"></image>
+        </view>
+        <view class="goods-mesages-text">
+          <view class="msg">{{item.goods_name}}</view>
+          <view class="price">￥{{item.goods_price}}</view>
+        </view>
+      </view>
+    </block>
+    <!-- 3.价格 -->
+    <block wx:else>
+      <view class="goods-mesages-container" wx:for="{{goodsListSortByPrice}}" wx:key="goods_id">
+        <view class="goods-mesages-img">
+          <image src="{{item.goods_big_logo ? item.goods_big_logo : 'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix" lazy-load="true"></image>
+        </view>
+        <view class="goods-mesages-text">
+          <view class="msg">{{item.goods_name}}</view>
+          <view class="price">￥{{item.goods_price}}</view>
+        </view>
+      </view>
+    </block>
+  </NavTab>
+  <!-- 上拉加载 -->
+  <view class="weui-loadmore" hidden="{{!searchLoading}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载......</view>
+  </view>
+  <view class="weui-loadmore weui-loadmore_line" hidden="{{!searchLoadingComplete}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">已经到底啦</view>
+  </view>
+</view>

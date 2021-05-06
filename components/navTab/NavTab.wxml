@@ -1,0 +1,8 @@
+<view class="navTab">
+  <view class="nav-contianer">
+    <view class="nav-item {{item.isActive ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="id" bindtap="handelTap" data-index="{{item.id}}">
+      {{item.value}}
+    </view>
+</view>
+<slot></slot>
+</view>

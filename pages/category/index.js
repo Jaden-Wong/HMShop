@@ -10,6 +10,7 @@ Page({
   cates: [],
 
   onLoad: function (options) {
+    // 取出缓存
     const Cates = wx.getStorageSync('cates')
     if (!Cates) {
       this.getCates()
@@ -31,6 +32,7 @@ Page({
       url: '/categories'
     })
     this.cates = result.data.message
+    // 设置缓存
     wx.setStorageSync('cates', { time: Date.now(), data: this.cates});
     this.setData({
       cates_menu: this.cates.map(i => i.cat_name),
