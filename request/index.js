@@ -1,4 +1,7 @@
 export const request = (params) => {
+  wx.showLoading({
+    title: '加载中',
+  })
   const baseURL = 'https://api-hmugo-web.itheima.net/api/public/v1'
   return new Promise((resolve, reject) => {
     wx.request({
@@ -10,7 +13,11 @@ export const request = (params) => {
       },
       fail: (err) => {
         reject(err)
+      },
+      complete: () => {
+        wx.hideLoading()
       }
     })
   })
 }
+  

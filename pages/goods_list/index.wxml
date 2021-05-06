@@ -5,7 +5,7 @@
   <NavTab tabs="{{navTabSel}}" bindnavItemTab="handelNavItemTab">
     <!-- 1.综合 -->
     <block wx:if="{{navTabSel[0].isActive}}">
-      <view class="goods-mesages-container" wx:for="{{goodsList}}" wx:key="goods_id">
+      <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" class="goods-mesages-container" wx:for="{{goodsList}}" wx:key="goods_id">
         <view class="goods-mesages-img">
           <image src="{{item.goods_big_logo ? item.goods_big_logo : 'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix" lazy-load="true"></image>
         </view>
@@ -13,11 +13,11 @@
           <view class="msg">{{item.goods_name}}</view>
           <view class="price">￥{{item.goods_price}}</view>
         </view>
-      </view>
+      </navigator>
     </block>
     <!-- 2.销量 -->
     <block wx:elif="{{navTabSel[1].isActive}}">
-      <view class="goods-mesages-container" wx:for="{{goodsListSortBySell}}" wx:key="goods_id">
+      <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" class="goods-mesages-container" wx:for="{{goodsListSortBySell}}" wx:key="goods_id">
         <view class="goods-mesages-img">
           <image src="{{item.goods_big_logo ? item.goods_big_logo : 'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix" lazy-load="true"></image>
         </view>
@@ -25,11 +25,11 @@
           <view class="msg">{{item.goods_name}}</view>
           <view class="price">￥{{item.goods_price}}</view>
         </view>
-      </view>
+      </navigator>
     </block>
     <!-- 3.价格 -->
     <block wx:else>
-      <view class="goods-mesages-container" wx:for="{{goodsListSortByPrice}}" wx:key="goods_id">
+      <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" class="goods-mesages-container" wx:for="{{goodsListSortByPrice}}" wx:key="goods_id">
         <view class="goods-mesages-img">
           <image src="{{item.goods_big_logo ? item.goods_big_logo : 'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix" lazy-load="true"></image>
         </view>
@@ -37,7 +37,7 @@
           <view class="msg">{{item.goods_name}}</view>
           <view class="price">￥{{item.goods_price}}</view>
         </view>
-      </view>
+      </navigator>
     </block>
   </NavTab>
   <!-- 上拉加载 -->

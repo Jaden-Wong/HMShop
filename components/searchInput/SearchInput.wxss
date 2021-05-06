@@ -5,6 +5,7 @@
 }
 .search-input .search-input-item {
   height: 100%;
+  line-height: 50rpx;
   text-align: center;
   color: #666;
   background-color: #fff;

@@ -9,11 +9,11 @@
     <scroll-view class="cates-item-content" scroll-y scroll-top="{{scrollTop}}">
       <view class="cates-item-content-items" wx:for="{{cates_content}}" wx:key="cat_id">
         <!-- 标题 -->
-        <view class="content-title">/ {{item.cat_name}} /</view>
+        <view class="content-title">{{item.cat_name}}</view>
         <!-- 内容 -->
         <view class="content-product">
           <!-- 跳转页面时携带参数 -->
-          <navigator url="/pages/goods_list/index?cid={{item2.cat_id}}" wx:for="{{item.children}}" wx:for-item="item2" wx:for-index="index2" wx:key="cat_id">
+          <navigator url="/pages/goods_list/index?cid={{item2.cat_id}}" wx:for="{{item.children}}" wx:for-item="item2" wx:for-index="index2" wx:key="cat_id" hover-class="none">
           <image src="{{item2.cat_icon}}" mode="widthFix" lazy-load="true"></image>
           <view>{{item2.cat_name}}</view>
         </navigator>
