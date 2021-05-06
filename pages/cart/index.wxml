@@ -1,2 +1,9 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="cart">
+  <view class="addAdress">
+    <button bindtap="handleChooseAdress">
+      <text class="iconfont icon-dizhi"></text>
+      <text>配送至</text>
+    </button>
+  </view>
+
+</view>

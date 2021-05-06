@@ -1,1 +1,8 @@
-/* pages/cart/index.wxss */
+.cart .addAdress button {
+  color: #666;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.cart .addAdress button text:nth-child(1) {
+  padding-right: 10rpx;
+}
