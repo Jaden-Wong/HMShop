@@ -1,9 +1,69 @@
 <view class="cart">
+  <!-- 收货地址 -->
   <view class="addAdress">
+    <!-- <button bindtap="handleChooseAdress" wx:if="{{!address.userName}}"> -->
     <button bindtap="handleChooseAdress">
       <text class="iconfont icon-dizhi"></text>
-      <text>配送至</text>
+      <text wx:if="{{!address.userName}}">请选择收货地址</text>
+      <text class="address" wx:else>收货地址：{{address.cityName + address.countyName + address.detailInfo}}</text>
     </button>
   </view>
-
+  <!-- 购物车内容 -->
+  <view class="goods-list" wx:for="{{carts}}" wx:key="goods_id" bindlongpress="handleLongPress" data-id="{{item.goods_id}}">
+    <!-- 1 -->
+    <view class="check" bindtap="handleGoodsCheckChange" data-id="{{item.goods_id}}">
+      <checkbox-group>
+        <checkbox color="#fff" checked="{{item.checked}}"></checkbox>
+      </checkbox-group>
+    </view>
+    <!-- 2 -->
+    <view class="goods-img" bindtap="showDetails" data-id="{{item.goods_id}}">
+      <image src="{{item.goods_big_logo}}" mode="widthFix" lazy-load="true"></image>
+    </view>
+    <view class="right">
+      <!-- 3 -->
+      <view class="gname" bindtap="showDetails" data-id="{{item.goods_id}}">
+        {{item.goods_name}}
+      </view>
+      <view class="right-bottom">
+        <!-- 4 -->
+        <view class="price" bindtap="showDetails" data-id="{{item.goods_id}}">
+          ￥{{item.goods_price}}
+        </view>
+        <!-- 5 -->
+        <view class="operations">
+          <button class="sub" bindtap="handleGoodsNumChange" data-id="{{item.goods_id}}" data-type="-1" disabled="{{item.num <= 1 ? true : false}}">-</button>
+          <text>{{item.num}}</text>
+          <button class="add" bindtap="handleGoodsNumChange" data-id="{{item.goods_id}}" data-type="1" disabled="{{item.num >= 99 ? true : false}}">+</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 购物车为空时显示 -->
+  <view class="cart-empty" hidden="{{!cartEmpty}}">
+    <view>购物车空空如也~</view>
+    <button bindtap="chooseGoods">选购商品</button>
+  </view>
+  <!-- 底部工具栏 -->
+  <view class="tools">
+    <view class="tools-left">
+      <checkbox-group bindchange="handleAllCheckChange">
+        <checkbox color="#fff" checked="{{allChecked}}"  disabled="{{allCheckDisable}}">全选</checkbox>
+      </checkbox-group>
+    </view>
+    <view class="tools-right">
+      <!-- 1 -->
+      <view class="text">合计：</view>
+      <!-- 2 -->
+      <view class="sum-price">
+        <!-- up -->
+        <view class="sum-price-item">￥{{sumPrice}}</view>
+        <!-- down -->
+        <view wx:if="{{carriage}}">包含运费</view>
+        <view wx:else>不包含运费</view>
+      </view>
+      <!-- 3 -->
+      <view class="pay" bindtap="handlePay">支付(<text>{{count}}</text>)</view>
+    </view>
+  </view>
 </view>

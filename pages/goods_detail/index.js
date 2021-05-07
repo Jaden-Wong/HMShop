@@ -49,7 +49,8 @@ Page({
     if (index === -1) {
       // 3.购物车中没有该商品
       this.goodsInfo.num = 1
-      cart.push(this.goodsInfo)
+      this.goodsInfo.checked = true
+      cart.unshift(this.goodsInfo)
     } else {
       // 4.购物车中有该商品
       cart[index].num++
