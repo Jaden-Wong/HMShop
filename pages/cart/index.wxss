@@ -24,7 +24,12 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   -webkit-transform: translate(-50%, -50%) scale(1);
 }
 .cart .addAdress button {
+  /* 单行文本溢出隐藏 */
   width: 100vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /*  */
   color: #666;
   font-size: 32rpx;
   font-weight: 500;
@@ -96,7 +101,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   height: 50rpx;
   line-height: 50rpx;
   text-align: center;
-  background-color: #eee;
+  background-color: #f8f8f8;
   border-radius: 10rpx;
 }
 .cart .tools {
@@ -106,7 +111,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   right: 0;
   width: 100vw;
   height: 110rpx;
-  background-color: #eee;
+  background-color: #f8f8f8;
   display: flex;
   justify-content: space-between;
   align-items: center;

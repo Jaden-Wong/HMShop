@@ -1,7 +1,6 @@
 <view class="cart">
   <!-- 收货地址 -->
   <view class="addAdress">
-    <!-- <button bindtap="handleChooseAdress" wx:if="{{!address.userName}}"> -->
     <button bindtap="handleChooseAdress">
       <text class="iconfont icon-dizhi"></text>
       <text wx:if="{{!address.userName}}">请选择收货地址</text>

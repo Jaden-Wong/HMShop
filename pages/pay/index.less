@@ -1,29 +1,7 @@
 page{
   padding-bottom: 110rpx;
 }
-checkbox .wx-checkbox-input{
-  width: 34rpx;
-  height: 34rpx;
-  border-radius: 50%;
-}
-/*checkbox选中后样式  */
-checkbox .wx-checkbox-input.wx-checkbox-input-checked {
-  background: #eb4450;
-  border-color:#eb4450;
-}
-/*checkbox选中后图标样式  */
-checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
-  width: 20rpx;
-  height: 20rpx;  
-  line-height: 20rpx;
-  text-align: center;
-  font-size: 22rpx;
-  color: #fff;
-  background: transparent;
-  transform: translate(-50%, -50%) scale(1);
-  -webkit-transform: translate(-50%, -50%) scale(1);
-}
-.cart{
+.pay{
   .addAdress{
     button{
       /* 单行文本溢出隐藏 */
@@ -32,13 +10,15 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
       text-overflow: ellipsis;
       white-space: nowrap;
       /*  */
+      height: 140rpx;
+      line-height: 50rpx;
       color: #666;
       font-size: 32rpx;
       font-weight: 500;
-      // background-color: #fff;
-      text:nth-child(1){
-        padding-right: 10rpx;
-      }
+      background-color: #f8f8f8;
+      // border-bottom: 2rpx solid #eee;
+      text-align: left;
+      margin-bottom: 20rpx;
     }
   }
   .goods-list{
@@ -48,17 +28,13 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
     padding: 30rpx;
     border-bottom: 2rpx solid #f8f8f8;
     height: 220rpx;
-    .check{
-      flex: 1;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 15rpx;
-    }
     .goods-img{
       flex: 3;
-      padding-right: 30rpx;
+      padding: 0 15rpx;
+      image{
+        width: 90%;
+        height: 90%;
+      }
     }
     .right{
       flex: 6;
@@ -122,58 +98,22 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // padding: 0;
     padding-left: 30rpx;
-    .tools-left{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .tools-right{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      .sum-price{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
-        .sum-price-item{
-          color: #eb4450;
-          font-weight: 700;
-          font-size: 32rpx;
-        }
-        view:nth-child(2){
-          font-size: 24rpx;
-        }
-      }
-      .pay{
-        width: 200rpx;
-        margin-left: 10rpx;
-        background-color: #eb4450;
-        text-align: center;
-        height: 100%;
-        line-height: 110rpx;
-        color: #fff;
+    .sum-price{
+        color: #eb4450;
         font-weight: 700;
+        font-size: 45rpx;
       }
+    .pay{
+      width: 300rpx;
+      margin-left: 10rpx;
+      background-color: #eb4450;
+      text-align: center;
+      height: 100%;
+      line-height: 110rpx;
+      color: #fff;
+      font-weight: 800;
+      font-size: 35rpx;
     }
-  }
-}
-.cart-empty{
-  width: 100vw;
-  height: 100vw;
-  // padding: 20rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #666;
-  font-size: 34rpx;
-  button{
-    margin-top: 20rpx;
-    background-color: #eb4450;
-    color: #fff;
-  }
+  }  
 }

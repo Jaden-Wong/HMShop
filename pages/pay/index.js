@@ -1,66 +1,85 @@
 // pages/pay/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    address: {},
+    carts: [],
+    sumPrice: 0,
+    count: 0,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-
+    this.getAddress()
+    this.getCarts()
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  onLoad: function (options) {
+    
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  handleChooseAdress () {
+    wx.chooseAddress({
+      success: (result)=>{
+        // console.log(result)
+        wx.setStorageSync('address', result)
+      }
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  getAddress () {
+    const address = wx.getStorageSync('address')||{}
+    this.setData({
+      address
+    })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+  getCarts () {
+    let carts = wx.getStorageSync('cart')||[]
+    if (carts.length === 0) return false
 
+    carts = carts.filter(i => i.checked)
+
+    let sumPrice = 0
+    let count = 0
+    carts.forEach(i => {
+      sumPrice += i.goods_price * i.num
+      count += i.num
+    })
+    this.setData({
+      carts: carts,
+      sumPrice: sumPrice,
+      count: count,
+    })
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  handleGoodsNumChange (e) {
+    const { carts } = this.data
+    const { id, type } = e.currentTarget.dataset
+    const index = carts.findIndex(i => i.goods_id === id)
+    carts[index].num += parseInt(type)
 
+    let sumPrice = 0
+    let count = 0
+    carts.forEach(i => {
+      sumPrice += i.goods_price * i.num
+      count += i.num
+    })
+    this.setData({
+      carts: carts,
+      sumPrice: sumPrice, 
+      count: count,
+    })
+    // const carts2 = wx.getStorageSync('cart')
+    // carts2[index].num += parseInt(type)
+    // wx.setStorageSync('cart', carts2)
+  },
+
+  handleOrderPay () {
+    const token = wx.getStorageSync('token')
+    if (!token) {
+      wx.navigateTo({
+        url: '/pages/auth/index'
+      })
+    }
   }
+
 })

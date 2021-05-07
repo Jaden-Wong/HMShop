@@ -1,2 +1,39 @@
-<!--pages/pay/index.wxml-->
-<text>pages/pay/index.wxml</text>
+<view class="pay">
+  <!-- 收货地址 -->
+  <view class="addAdress">
+    <button bindtap="handleChooseAdress">
+      <text class="address">收货地址：{{address.cityName + address.countyName + address.detailInfo}}</text>
+      <view class="address">收货人：{{address.userName + ' ' + address.telNumber}}</view>
+    </button>
+  </view>
+  <!-- 购物车内容 -->
+  <view class="goods-list" wx:for="{{carts}}" wx:key="goods_id">
+    <!-- 1 -->
+    <view class="goods-img">
+      <image src="{{item.goods_big_logo}}" mode="widthFix" lazy-load="true"></image>
+    </view>
+    <view class="right">
+      <!-- 2 -->
+      <view class="gname">
+        {{item.goods_name}}
+      </view>
+      <view class="right-bottom">
+        <!-- 3 -->
+        <view class="price">
+          ￥{{item.goods_price}}
+        </view>
+        <!-- 4 -->
+        <view class="operations">
+          <button class="sub" bindtap="handleGoodsNumChange" data-id="{{item.goods_id}}" data-type="-1" disabled="{{item.num <= 1 ? true : false}}">-</button>
+          <text>{{item.num}}</text>
+          <button class="add" bindtap="handleGoodsNumChange" data-id="{{item.goods_id}}" data-type="1" disabled="{{item.num >= 99 ? true : false}}">+</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 底部工具栏 -->
+  <view class="tools">
+    <view class="sum-price">￥{{sumPrice}}</view>
+    <view class="pay" bindtap="handleOrderPay">确认支付</view>
+  </view>
+</view>
