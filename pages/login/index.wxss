@@ -1,1 +1,4 @@
-/* pages/login/index.wxss */
+button {
+  color: #666;
+  background-color: #f8f8f8;
+}

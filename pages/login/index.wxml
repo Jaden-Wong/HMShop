@@ -1,2 +1,1 @@
-<!--pages/login/index.wxml-->
-<text>pages/login/index.wxml</text>
+<button bindtap="handleGetUserProfile">一键登录</button>

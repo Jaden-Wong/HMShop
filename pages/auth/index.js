@@ -1,5 +1,5 @@
 import { request } from '../../request/index.js'
-import { login } from '../../utils/async.js'
+import { login, getUserMsg } from '../../utils/async.js'
 import { token } from '../../utils/token.js'
 // pages/auth/index.js
 Page({
@@ -11,11 +11,13 @@ Page({
 
   },
 
-  async handleGetUserInfo (e) {
+  async handleGetUserInfo () {
+    const userMsg = await getUserMsg()
+    // console.log(userMsg)
     // 1.获取用户token
     try {
       // console.log(e)
-      const { encryptedData, rawData, iv, signature } = e.detail
+      const { encryptedData, rawData, iv, signature } = userMsg
       const { code } = await login()
       const loginParams = { encryptedData, rawData, iv, signature, code }
       // console.log(loginParams)
@@ -25,7 +27,7 @@ Page({
         data: loginParams,
         method: 'post'
       })
-      // console.log(result)
+      console.log(result)
       // console.log(token)
       wx.setStorageSync('token', token)
       wx.navigateBack({
@@ -35,5 +37,4 @@ Page({
       // console.log(error)
     }
   }
-
 })
