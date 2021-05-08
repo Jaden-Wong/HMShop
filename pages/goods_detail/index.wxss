@@ -46,6 +46,10 @@ page {
   align-items: center;
   font-size: 26rpx;
 }
+.goods_detail .msg .collect view:nth-child(1) {
+  color: var(--themeColor);
+  font-size: 30rpx;
+}
 .goods_detail .picTextDetails-container {
   padding: 15rpx;
 }

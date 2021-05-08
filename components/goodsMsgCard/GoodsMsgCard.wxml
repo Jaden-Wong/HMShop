@@ -1,0 +1,19 @@
+<!-- 购物车内容 -->
+<view class="goods-list" wx:for="{{carts}}" wx:key="goods_id" data-id="{{item.goods_id}}" bindtap="showDetails">
+  <!-- 1 -->
+  <view class="goods-img">
+    <image src="{{item.goods_big_logo}}" mode="widthFix" lazy-load="true"></image>
+  </view>
+  <view class="right">
+    <!-- 2 -->
+    <view class="gname">
+      {{item.goods_name}}
+    </view>
+    <view class="right-bottom">
+      <!-- 3 -->
+      <view class="price">
+        ￥{{item.goods_price}}
+      </view>
+    </view>
+  </view>
+</view>

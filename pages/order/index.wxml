@@ -1,2 +1,22 @@
-<!--pages/order/index.wxml-->
-<text>pages/order/index.wxml</text>
+<view class="order">
+  <!-- 导航栏 -->
+  <NavTab tabs="{{navTabSel}}" bindnavItemTab="handelNavItemTab">
+    <!-- order列表 -->
+    <view class="order-list-contianer" wx:for="{{orders}}" wx:key="{{order_id}}">
+      <view class="order-list-count">
+        <view>订单编号</view>
+        <view>{{item.order_number}}</view>
+      </view>
+      <view class="order-list-price">
+        <view>订单价格</view>
+        <view>￥{{item.order_price}}</view>
+      </view>
+      <view class="order-list-date">
+        <view>订单日期</view>
+        <view>{{item.create_time_cn}}</view>
+      </view>
+    </view>
+  </NavTab>
+  <!-- order为空 -->
+  <view class="order-empty" hidden="{{orders == '' ? false : true}}">未查询到相关信息</view>
+</view>

@@ -1,1 +1,1 @@
-<button bindtap="handleGetUserInfo">支付授权</button>
+<CircleBtn bindtap="handleGetUserInfo">授权</CircleBtn>

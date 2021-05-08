@@ -1,3 +1,72 @@
-<button>
-  <navigator url="/pages/login/index" hover-class="none">登录</navigator>  
-</button>
+<view class="user">
+    <!-- 1.已登录 -->
+    <view class="logined" wx:if="{{isLogin}}">
+      <view class="img">
+        <image src="{{userInfo.avatarUrl}}" mode="widthFix" lazy-load="true"></image>
+      </view>
+      <view class="details">
+        <view class="uname">{{userInfo.nickName}}</view>
+        <view class="address">{{userInfo.province + ' ' + userInfo.city}}</view>
+      </view>
+    </view>
+    <!-- 未登录 -->
+    <view class="login" wx:else>
+      <CircleBtn circleBtnURL="/pages/login/index">登录</CircleBtn>
+    </view>
+    <!-- main -->
+    <view class="main">
+      <!-- 1.商品相关 -->
+      <view class="about-goods">
+        <FourBtnsWithIcons navURL2="/pages/collect/index">
+          <view slot="icon1">0</view>
+          <view slot="icon2">{{collectNums}}</view>
+          <view slot="icon3">0</view>
+          <view slot="icon4">0</view>
+          <view slot="text1">收藏的店铺</view>
+          <view slot="text2">收藏的商品</view>
+          <view slot="text3">关注的商品</view>
+          <view slot="text4">我的足迹</view>
+        </FourBtnsWithIcons>
+      </view>
+      <!-- 2.订单相关 -->
+      <view class="order">
+        <view class="order-title">
+          <view>我的订单</view>
+        </view>
+        <view class="order-func">
+          <FourBtnsWithIcons navURL1="/pages/order/index?type=1" navURL2="/pages/order/index?type=2" navURL3="/pages/order/index?type=3" navURL4="/pages/order/index?type=4">
+            <view slot="icon1" class="iconfont icon-icon- iconstyle"></view>
+            <view slot="icon2" class="iconfont icon-fukuan iconstyle"></view>
+            <view slot="icon3" class="iconfont icon-shouhuo iconstyle"></view>
+            <view slot="icon4" class="iconfont icon-tuikuan iconstyle"></view>
+            <view slot="text1">全部订单</view>
+            <view slot="text2">待付款</view>
+            <view slot="text3">待收货</view>
+            <view slot="text4">退货/退款</view>
+          </FourBtnsWithIcons>
+          <view class="tools-container">
+            <view class="tools-item">
+              <view>收货地址管理</view>
+              <view class="iconfont icon-you"></view>
+            </view>
+            <view class="tools-item">
+              <view>联系客服</view>
+              <view>400-618-4000</view>
+            </view>
+            <view class="tools-item">
+              <view>意见反馈</view>
+              <view class="iconfont icon-you"></view>
+            </view>
+            <view class="tools-item">
+              <view>关于我们</view>
+              <view class="iconfont icon-you"></view>
+            </view>
+            <view class="tools-item">
+              <view>把应用推荐给好友</view>
+              <view class="iconfont icon-you"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>

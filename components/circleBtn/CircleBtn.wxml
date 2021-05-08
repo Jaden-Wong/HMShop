@@ -1,0 +1,7 @@
+<view class="circleBtn-container">
+  <view class="circleBtn-item">
+    <navigator url="{{circleBtnURL}}" hover-class="none">
+      <slot></slot>
+    </navigator>
+  </view>
+</view>

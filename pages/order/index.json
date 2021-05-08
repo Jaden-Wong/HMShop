@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "NavTab": "../../components/navTab/NavTab"
+  },
+  "navigationBarTitleText": "订单"
 }

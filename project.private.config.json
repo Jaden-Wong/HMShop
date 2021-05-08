@@ -57,6 +57,19 @@
         {
           "name": "个人中心",
           "pathName": "pages/user/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单",
+          "pathName": "pages/order/index",
+          "query": "type=1",
+          "scene": null
+        },
+        {
+          "name": "收藏",
+          "pathName": "pages/collect/index",
+          "query": "",
           "scene": null
         }
       ]

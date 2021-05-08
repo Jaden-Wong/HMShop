@@ -11,8 +11,8 @@
     <!-- 商品名称 -->
     <view class="gname">{{goodsDetail.goods_name}}{{goodsDetail.goods_name}}</view>
     <!-- 收藏 -->
-    <view class="collect">
-      <view class="iconfont icon-shoucang1-copy"></view>
+    <view class="collect" bindtap="handleCollect">
+      <view class="iconfont {{isCollected ? 'icon-shoucang1' : 'icon-shoucang1-copy'}}"></view>
       <view class="text">收藏</view>
     </view>
   </view>

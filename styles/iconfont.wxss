@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2524099 */
-  src: url('//at.alicdn.com/t/font_2524099_twp2h4scuk.woff2?t=1620315597302') format('woff2'),
-       url('//at.alicdn.com/t/font_2524099_twp2h4scuk.woff?t=1620315597302') format('woff'),
-       url('//at.alicdn.com/t/font_2524099_twp2h4scuk.ttf?t=1620315597302') format('truetype');
+  src: url('//at.alicdn.com/t/font_2524099_msin5ui9j6l.woff2?t=1620463220688') format('woff2'),
+       url('//at.alicdn.com/t/font_2524099_msin5ui9j6l.woff?t=1620463220688') format('woff'),
+       url('//at.alicdn.com/t/font_2524099_msin5ui9j6l.ttf?t=1620463220688') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,26 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-you:before {
+  content: "\e607";
+}
+
+.icon-fukuan:before {
+  content: "\e602";
+}
+
+.icon-icon-:before {
+  content: "\e603";
+}
+
+.icon-tuikuan:before {
+  content: "\e64d";
+}
+
+.icon-shouhuo:before {
+  content: "\e680";
 }
 
 .icon-dizhi:before {

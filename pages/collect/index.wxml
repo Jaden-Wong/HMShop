@@ -1,2 +1,10 @@
-<!--pages/collect/index.wxml-->
-<text>pages/collect/index.wxml</text>
+<view class="collect">
+  <NavTab tabs="{{navTabSel}}" bindnavItemTab="handelNavItemTab">
+    <block wx:if="{{navTabSel[0].isActive}}">
+      <GoodsMsgCard carts="{{collect}}" bindshowDetails="handleShowDetails"></GoodsMsgCard>
+    </block>
+    <block wx:else>
+      <view class="func-empty">该功能尚未开发好</view>
+    </block>
+  </NavTab>
+</view>

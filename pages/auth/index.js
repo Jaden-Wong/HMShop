@@ -27,7 +27,7 @@ Page({
         data: loginParams,
         method: 'post'
       })
-      console.log(result)
+      // console.log(result)
       // console.log(token)
       wx.setStorageSync('token', token)
       wx.navigateBack({

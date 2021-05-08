@@ -1,0 +1,18 @@
+<view class="btns-container">
+  <navigator url="{{navURL1}}" hover-class="none" class="btns-item">
+    <slot name="icon1">0</slot>
+    <slot name="text1">默认内容</slot>
+  </navigator>
+  <navigator url="{{navURL2}}" hover-class="none" class="btns-item">
+    <slot name="icon2">0</slot>
+    <slot name="text2">默认内容</slot>
+  </navigator>
+  <navigator url="{{navURL3}}" hover-class="none" class="btns-item">
+    <slot name="icon3">0</slot>
+    <slot name="text3">默认内容</slot>
+  </navigator>
+  <navigator url="{{navURL4}}" hover-class="none" class="btns-item">
+    <slot name="icon4">0</slot>
+    <slot name="text4">默认内容</slot>
+  </navigator>
+</view>

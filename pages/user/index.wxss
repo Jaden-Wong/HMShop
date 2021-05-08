@@ -1,8 +1,50 @@
-button {
-  color: #666;
+.user .logined {
   background-color: #f8f8f8;
+  margin: 20rpx;
+  margin-bottom: 0;
+  padding: 20rpx;
+  padding-left: 40rpx;
+  border-radius: 20rpx;
+  height: 160rpx;
+  display: flex;
 }
-button navigator {
-  width: 100%;
-  height: 100%;
+.user .logined .img {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user .logined .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 40rpx;
+}
+.user .logined .details .uname {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.user .main .order .order-title {
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  padding-left: 20rpx;
+  border-bottom: 2rpx solid #eee;
+}
+.user .main .order .order-func .iconstyle {
+  font-size: 38rpx;
+  padding-bottom: 5rpx;
+}
+.user .main .order .tools-container {
+  display: flex;
+  flex-direction: column;
+}
+.user .main .order .tools-container .tools-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 35rpx;
+  height: 100rpx;
+  border-bottom: 2rpx solid #eee;
 }

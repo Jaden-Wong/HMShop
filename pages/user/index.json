@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "CircleBtn": "../../components/circleBtn/CircleBtn",
+    "FourBtnsWithIcons": "../../components/fourBtnsWithIcons/fourBtnsWithIcons"
+  },
   "navigationBarTitleText": "个人中心"
 }

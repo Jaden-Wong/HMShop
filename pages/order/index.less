@@ -1,0 +1,36 @@
+.order-list-contianer{
+  padding: 20rpx 40rpx;
+  // border-top: 2rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
+  view{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rpx 0;
+    view:nth-child(1){
+      color: #666;
+    }
+  }
+  .order-list-count{
+    view:nth-child(2){
+      color: blue;
+    }
+  }
+  .order-list-price{
+    view:nth-child(2){
+      color: var(--themeColor);
+      font-weight: 700;
+      font-size: 30rpx;
+    }
+  }
+  .order-list-date{
+    view:nth-child(2){
+      color: green;
+    }
+  }
+}
+.order-empty{
+  padding-top: 20rpx;
+  color: #666;
+  text-align: center;
+}

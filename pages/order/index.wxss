@@ -1,1 +1,29 @@
-/* pages/order/index.wxss */
+.order-list-contianer {
+  padding: 20rpx 40rpx;
+  border-bottom: 2rpx solid #eee;
+}
+.order-list-contianer view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rpx 0;
+}
+.order-list-contianer view view:nth-child(1) {
+  color: #666;
+}
+.order-list-contianer .order-list-count view:nth-child(2) {
+  color: blue;
+}
+.order-list-contianer .order-list-price view:nth-child(2) {
+  color: var(--themeColor);
+  font-weight: 700;
+  font-size: 30rpx;
+}
+.order-list-contianer .order-list-date view:nth-child(2) {
+  color: green;
+}
+.order-empty {
+  padding-top: 20rpx;
+  color: #666;
+  text-align: center;
+}

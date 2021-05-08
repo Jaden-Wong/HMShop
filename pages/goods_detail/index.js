@@ -2,16 +2,24 @@ import { request } from '../../request/index.js'
 // pages/goods_detail/index.js
 Page({
   data: {
-    goodsDetail: {}
+    goodsDetail: {},
+    isCollected: false
   },
 
   pics: [],
+  // 当前商品对象
   goodsInfo: {},
 
-  onLoad: function (options) {
-    // console.log(options)
+  onShow () {
+    const page =  getCurrentPages()
+    const { options } = page[page.length -1]
     this.getGoodsDetail(options)
   },
+
+  // onLoad: function (options) {
+  //   // console.log(options)
+  //   this.getGoodsDetail(options)
+  // },
 
   async getGoodsDetail (options) {
     const result = await request({
@@ -20,13 +28,17 @@ Page({
     })
     this.goodsInfo = result.data.message
     this.pics = result.data.message.pics
+    // 获取商品是否被搜藏的信息
+    const collect = wx.getStorageSync('collect')||[]
+    const isCollected = collect.some(i => i.goods_id === this.goodsInfo.goods_id)
     this.setData({
       goodsDetail: {
         pics: result.data.message.pics,
         goods_price: result.data.message.goods_price,
         goods_name: result.data.message.goods_name,
         goods_introduce: result.data.message.goods_introduce.replace(/\.webp/g, '.jpg')
-      }
+      },
+      isCollected
     })
   },
 
@@ -64,5 +76,38 @@ Page({
       duration: 1500,
       mask: true,
     })
+  },
+  
+  handleCollect () {
+    let isCollected = false
+    const collect = wx.getStorageSync('collect')||[]
+    const index = collect.findIndex(i => i.goods_id === this.goodsInfo.goods_id)
+    if (index === -1) {
+      // 没有收藏
+      collect.push(this.goodsInfo)
+      isCollected = true
+      wx.showToast({
+        title: '收藏成功',
+        icon: 'success',
+        duration: 1500,
+        mask: true,
+      })
+    } else {
+      // 已收藏过
+      collect.splice(index, 1)
+      isCollected = false
+      wx.showToast({
+        title: '取消收藏',
+        icon: 'error',
+        duration: 1500,
+        mask: true,
+      })
+    }
+    wx.setStorageSync('collect', collect)
+    // console.log(isCollected)
+    this.setData({
+      isCollected
+    })
   }
+
 })
