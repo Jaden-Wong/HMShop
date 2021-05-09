@@ -11,7 +11,7 @@
     </view>
     <!-- 未登录 -->
     <view class="login" wx:else>
-      <CircleBtn circleBtnURL="/pages/login/index">登录</CircleBtn>
+      <CircleBtn circleBtnURL="/pages/auth/index">登录</CircleBtn>
     </view>
     <!-- main -->
     <view class="main">
@@ -45,7 +45,7 @@
             <view slot="text4">退货/退款</view>
           </FourBtnsWithIcons>
           <view class="tools-container">
-            <view class="tools-item">
+            <view class="tools-item" bindtap="manageAddress">
               <view>收货地址管理</view>
               <view class="iconfont icon-you"></view>
             </view>
@@ -54,16 +54,22 @@
               <view>400-618-4000</view>
             </view>
             <view class="tools-item">
-              <view>意见反馈</view>
-              <view class="iconfont icon-you"></view>
+              <button open-type="feedback">
+                <view>意见反馈</view>
+                  <view class="iconfont icon-you"></view>
+                </button>
+              <!-- <view>意见反馈</view> -->
+              <!-- <view class="iconfont icon-you"></view> -->
             </view>
-            <view class="tools-item">
+            <view class="tools-item" bindtap="aboutUs">
               <view>关于我们</view>
               <view class="iconfont icon-you"></view>
             </view>
             <view class="tools-item">
-              <view>把应用推荐给好友</view>
-              <view class="iconfont icon-you"></view>
+              <button open-type="share">
+                <view>把应用推荐给好友</view>
+                <view class="iconfont icon-you"></view>
+              </button>
             </view>
           </view>
         </view>

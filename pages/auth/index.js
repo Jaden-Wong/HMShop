@@ -13,6 +13,7 @@ Page({
 
   async handleGetUserInfo () {
     const userMsg = await getUserMsg()
+    wx.setStorageSync('userInfo', userMsg.userInfo)
     // console.log(userMsg)
     // 1.获取用户token
     try {

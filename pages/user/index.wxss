@@ -48,3 +48,23 @@
   height: 100rpx;
   border-bottom: 2rpx solid #eee;
 }
+.user .main .order .tools-container .tools-item:nth-child(3),
+.user .main .order .tools-container .tools-item:nth-child(5) {
+  padding: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.user .main .order .tools-container .tools-item:nth-child(3) button,
+.user .main .order .tools-container .tools-item:nth-child(5) button {
+  width: 100%;
+  height: 100%;
+  padding: 0 35rpx;
+  margin: 0;
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+}

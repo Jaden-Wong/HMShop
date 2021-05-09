@@ -41,7 +41,8 @@ Page({
   onLoad: function (options) {
     // 跳转页面时携带的参数
     // console.log(options)
-    this.params.cid = options.cid
+    this.params.cid = options.cid||''
+    this.params.query = options.query||''
     this.getGoodsList()
   },
 

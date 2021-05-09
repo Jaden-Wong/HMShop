@@ -4,12 +4,14 @@
   <!-- 轮播图 -->
   <swiper class="swiper-index" indicator-dots	autoplay circular>
     <swiper-item wx:for="{{swiperList}}" wx:key="id">
-      <image mode="widthFix" src="{{item.image_src}}" lazy-load="{{true}}"></image>
+      <navigator url="{{swiperURL[index].navigator_url}}" hover-class="none">
+        <image mode="widthFix" src="{{item.image_src}}" lazy-load="{{true}}"></image>
+      </navigator>
     </swiper-item>
   </swiper>
   <!-- 导航栏 -->
   <view class="nav-container-index">
-    <navigator url="#" class="nav-item-index" wx:for="{{catesList}}" wx:key="floor_title">
+    <navigator url="/pages/category/index" open-type="switchTab" class="nav-item-index" wx:for="{{catesList}}" wx:key="floor_title">
       <image mode="widthFix" src="{{item.image_src}}" lazy-load="{{true}}">
       </image>
     </navigator>
@@ -23,9 +25,9 @@
       </view>
       <!-- product -->
       <view class="floor-product">
-        <view class="floor-product-item" wx:for="{{item.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name">
+        <navigator class="floor-product-item" wx:for="{{item.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name" url="{{item2.navigator_url}}">
           <image src="{{item2.image_src}}" mode="{{index2 === 0 ? 'widthFix' : 'scaleToFill'}}" lazy-load="{{true}}"></image>
-        </view>
+        </navigator>
       </view>
     </view>
   </view>

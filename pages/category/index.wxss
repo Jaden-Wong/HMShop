@@ -45,6 +45,11 @@
   padding: 10rpx;
   width: 33.33%;
 }
-.cates .cates-container .cates-item-content .cates-item-content-items .content-product navigator image {
-  width: 60%;
+.cates .cates-container .cates-item-content .cates-item-content-items .content-product navigator .img-box {
+  margin: auto;
+  width: 110rpx;
+  height: 110rpx;
+}
+.cates .cates-container .cates-item-content .cates-item-content-items .content-product navigator .img-box image {
+  width: 100%;
 }

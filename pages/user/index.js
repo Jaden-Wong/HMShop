@@ -27,5 +27,20 @@ Page({
     this.setData({
       userInfo
     })
+  },
+  manageAddress () {
+    wx.chooseAddress()
+  },
+  
+  aboutUs () {
+    wx.showModal({
+      title: '关于我们',
+      content: '该案例仅用于学习',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#000000',
+      confirmText: '确定',
+      confirmColor: '#3CC51F'
+    })
   }
 })

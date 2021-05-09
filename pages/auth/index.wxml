@@ -1,1 +1,1 @@
-<CircleBtn bindtap="handleGetUserInfo">授权</CircleBtn>
+<CircleBtn bindtap="handleGetUserInfo">登录</CircleBtn>

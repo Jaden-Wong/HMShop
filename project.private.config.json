@@ -13,7 +13,7 @@
     "miniprogram": {
       "list": [
         {
-          "name": "分类页面",
+          "name": "商品分类",
           "pathName": "pages/category/index",
           "query": "",
           "scene": null
@@ -75,6 +75,7 @@
         {
           "name": "搜索",
           "pathName": "pages/search/index",
+          "query": "",
           "scene": null
         }
       ]

@@ -77,6 +77,20 @@ Page({
       mask: true,
     })
   },
+
+  handleBuyNow () {
+    const cart = wx.getStorageSync('cart')||[]
+    cart.map(i => i.checked = false)
+    {
+      this.goodsInfo.num = 1
+      this.goodsInfo.checked = true
+      cart.unshift(this.goodsInfo)
+    }
+    wx.setStorageSync('cart', cart)
+    wx.navigateTo({
+      url: '/pages/pay/index'
+    })
+  },
   
   handleCollect () {
     let isCollected = false

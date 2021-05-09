@@ -4,7 +4,17 @@ Page({
   data: {
     swiperList: [],
     catesList: [],
-    floorList: []
+    floorList: [],
+    swiperURL: [{
+      id: 0,
+      navigator_url: '/pages/goods_list/index?cid=946'
+    },{
+      id: 1,
+      navigator_url: '/pages/goods_list/index?cid=12'
+    },{
+      id: 2,
+      navigator_url: '/pages/goods_list/index?cid=723'
+    }]
   },
 
   onLoad: function(options) {
@@ -17,6 +27,13 @@ Page({
     const result = await request({
       url: '/home/swiperdata'
     })
+    result.data.message.forEach(i => {
+      // console.log(i.navigator_url.split('').splice(20, 4).join(''))
+      // console.log(i.navigator_url = i.navigator_url.split('').splice(0, 20).join('') + 'index' + i.navigator_url.split('').splice(24).join(''))
+      // console.log(i.navigator_url)
+      return i.navigator_url = i.navigator_url.replace('main', 'index')
+    })
+    // console.log(result.data.message)
     this.setData({
       swiperList: result.data.message
     })
@@ -34,6 +51,11 @@ Page({
   async getFloorList () {
     const result = await request({
       url: '/home/floordata'
+    })
+    result.data.message.forEach(i => {
+      i.product_list.forEach(i => {
+        return i.navigator_url = i.navigator_url.split('').splice(0, 17).join('') + '/index' + i.navigator_url.split('').splice(17).join('')
+      })
     })
     this.setData({
       floorList: result.data.message
