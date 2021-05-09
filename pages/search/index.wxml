@@ -1,2 +1,26 @@
-<!--pages/search/index.wxml-->
-<text>pages/search/index.wxml</text>
+<view class="search-container">
+  <view class="search-item">
+    <input value="{{inputValue}}" type="text" placeholder="请输入关键字" focus="{{true}}" bindinput="handleInput"></input>
+    <button wx:if="{{goods == ''}}">搜索</button>
+    <button wx:else bindtap="handleCancel">取消</button>
+  </view>
+  <view class="recommend">
+    <view class="recommend-title">猜你喜欢</view>
+    <view class="recommend-item">
+      <view bindtap="handleTapLike" data-value="{{'曲面电视'}}">曲面电视</view>
+      <view bindtap="handleTapLike" data-value="{{'烹饪厨具'}}">烹饪厨具</view>
+      <view bindtap="handleTapLike" data-value="{{'运动户外'}}">运动户外</view>
+      <view bindtap="handleTapLike" data-value="{{'手机'}}">手机</view>
+    </view>
+  </view>
+  <view class="recommend">
+    <view class="recommend-title">热门搜索</view>
+    <view class="recommend-item">
+      <view bindtap="handleTapLike" data-value="{{'男装'}}">男装</view>
+      <view bindtap="handleTapLike" data-value="{{'女装'}}">女装</view>
+    </view>
+  </view>
+  <view class="search-content">
+    <navigator wx:for="{{goods}}" wx:key="goods_id" url="/pages/goods_detail/index?goods_id={{item.goods_id}}">{{item.goods_name}}</navigator>
+  </view>
+</view>

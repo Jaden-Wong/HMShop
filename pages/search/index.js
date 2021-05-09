@@ -1,66 +1,85 @@
+import { request } from '../../request/index.js'
 // pages/search/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    goods: [],
+    valueEmpty: false,
+    inputValue: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+  Timer: null,
 
+  handleInput (e) {
+    // console.log(e.detail.value)
+    const { value } = e.detail
+    if (value.trim() === '') {
+      this.setData({
+        goods: [],
+        valueEmpty: true
+      })
+      return
+    } else {
+      this.setData({
+        valueEmpty: false
+      })
+    }
+    clearTimeout(this.Timer)
+    this.Timer = setTimeout(() => {
+      this.getSearchRes(value)
+    }, 600)
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  async getSearchRes (value) {
+    const result = await request({
+      url: '/goods/search',
+      data: {
+        query: value
+      }
+    })
+    if (this.data.valueEmpty) return
+    // console.log(result)
+    const { goods } = result.data.message
+    goods.map(i => {
+      i.goods_name = i.goods_name.split(' ').splice(0, 2).join(' ')
+    })
+    // const textGood = goods[0].goods_name
+    // console.log(textGood)
+    // console.log(textGood.split(' ').splice(0,2).join(' '))
+    this.setData({
+      goods: goods.sort((a, b) => {
+        return a.goods_name.length - b.goods_name.length
+      })
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  handleTapLike (e) {
+    // console.log(e.currentTarget.dataset.value)
+    this.handleInput({
+      detail: {
+        value: e.currentTarget.dataset.value
+      }
+    })
+    this.setData({
+      inputValue: e.currentTarget.dataset.value
+    })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  handleCancel () {
+    this.handleInput({
+      detail: {
+        value: ''
+      }
+    })
+    this.setData({
+      inputValue: ''
+    })
   }
 })

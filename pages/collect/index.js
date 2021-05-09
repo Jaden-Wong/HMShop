@@ -35,7 +35,7 @@ Page({
 
   handelNavItemTab (e) {
     const { index } = e.detail
-    console.log(index)
+    // console.log(index)
     const { navTabSel } = this.data
     navTabSel.forEach(item => {
       if (index === item.id) {
